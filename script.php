@@ -9,3 +9,15 @@ Il secondo file riceverà la richiesta ed eseguirà queste operazioni:
  stampare a schermo il paragrafo e la sua lunghezza
 stampare di nuovo il paragrafo e la sua lunghezza, dopo aver sostituito con tre asterischi (***) tutte le occorrenze della parola da censurare
  -->
+
+<?php
+
+$paragraph = $_POST['paragraph'];
+
+$paragraph_leng = strlen($paragraph);
+
+//var_dump($paragraph);
+
+//var_dump($paragraph_leng);
+
+echo "$paragraph $paragraph_leng";
