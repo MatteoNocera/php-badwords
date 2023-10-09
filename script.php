@@ -17,6 +17,8 @@ stampare di nuovo il paragrafo e la sua lunghezza, dopo aver sostituito con tre 
 $paragraph = $_POST['paragraph'];
 //var_dump($paragraph);
 
+$paragraph_len = strlen($paragraph);
+
 $bad_word = $_POST['bad_word'];
 
 //utilizzo substr_replace per rimpiazzare le lettere finali dalla parola (uso il contatore negativo per partire dalla fine) ed utilizzo repeat, 3 per aggiungere i 3 asterischi
@@ -38,6 +40,10 @@ $censored_paragraph = str_replace($bad_word, $hidden_bad_word, $paragraph);
 </head>
 
 <body>
+
+    <h2><?php echo $paragraph ?></h2>
+
+    <h2>Il tuo paragrafo contiene <?php echo $paragraph_len ?> caratteri</h2>
 
     <h2><?php echo $censored_paragraph ?></h2>
 
