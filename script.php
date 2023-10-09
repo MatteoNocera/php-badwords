@@ -12,25 +12,19 @@ stampare di nuovo il paragrafo e la sua lunghezza, dopo aver sostituito con tre 
 
 <?php
 
-$paragraph = $_POST['paragraph'];
+//var_dump($_POST);
 
-$paragraph_leng = strlen($paragraph);
+$paragraph = $_POST['paragraph'];
+//var_dump($paragraph);
 
 $bad_word = $_POST['bad_word'];
-
-// Utilizzo count per determinare la lunghezza della parola
-$count = strlen($bad_word) - 1;
 
 //utilizzo substr_replace per rimpiazzare le lettere finali dalla parola (uso il contatore negativo per partire dalla fine) ed utilizzo repeat, 3 per aggiungere i 3 asterischi
 $hidden_bad_word = substr_replace($bad_word, str_repeat('*', 3), -3, null);
 
-//var_dump($_POST);
+$censored_paragraph = str_replace($bad_word, $hidden_bad_word, $paragraph);
 
-//var_dump($paragraph);
 
-//var_dump($paragraph_leng);
-
-//echo `$paragraph ha una lunghezza di $paragraph_leng caratteri`;
 
 ?>
 
@@ -44,12 +38,8 @@ $hidden_bad_word = substr_replace($bad_word, str_repeat('*', 3), -3, null);
 </head>
 
 <body>
-    <h1>Hai scritto <?php echo $paragraph ?></h1>
-    <h3>che ha una lunghezza di <?php echo $paragraph_leng ?> caratteri</h3>
 
-    <h3>La parolaccia nascosta è <?php echo $hidden_bad_word ?></h3>
-
-    <h2><?php echo "$paragraph $hidden_bad_word" ?></h2>
+    <h2><?php echo $censored_paragraph ?></h2>
 
 </body>
 
